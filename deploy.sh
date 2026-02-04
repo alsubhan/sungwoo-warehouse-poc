@@ -4,27 +4,32 @@
 REMOTE_USER="subhan"
 REMOTE_HOST="aifin.tolor.com"
 REMOTE_PORT="1022"
-REMOTE_DIR="~/apps/sungwoo-warehouse-poc"
-APP_PORT="8081" # Avoiding 8000/8080 as requested
+APP_PORT="8081"
+REPO_URL="https://github.com/alsubhan/sungwoo-warehouse-poc.git"
 
 echo "🚀 Starting Deployment to $REMOTE_HOST..."
 
-# Connect via SSH and execute commands
-ssh -p $REMOTE_PORT -t $REMOTE_USER@$REMOTE_HOST << EOF
+# Connect via SSH
+# We use 'bash -s' to execute the following commands
+ssh -p $REMOTE_PORT -t $REMOTE_USER@$REMOTE_HOST "bash -s" << EOF
     set -e # Exit on error
-
-    echo "📂 Setup remote directory..."
-    mkdir -p ~/apps
     
-    if [ -d "$REMOTE_DIR" ]; then
-        echo "⬇️ Pulling latest code..."
-        cd $REMOTE_DIR
+    # Define paths (using \$HOME to use remote home directory)
+    APPS_DIR="\$HOME/apps"
+    PROJECT_DIR="\$APPS_DIR/sungwoo-warehouse-poc"
+
+    echo "📂 Ensuring apps directory exists..."
+    mkdir -p "\$APPS_DIR"
+    
+    if [ -d "\$PROJECT_DIR" ]; then
+        echo "⬇️ Pulling latest code in \$PROJECT_DIR..."
+        cd "\$PROJECT_DIR"
         git pull origin main
     else
-        echo "⬇️ Cloning repository..."
-        cd ~/apps
-        git clone https://github.com/alsubhan/sungwoo-warehouse-poc.git
-        cd $REMOTE_DIR
+        echo "⬇️ Cloning repository to \$PROJECT_DIR..."
+        cd "\$APPS_DIR"
+        git clone $REPO_URL
+        cd "\$PROJECT_DIR"
     fi
 
     echo "🐳 Building Docker image..."
