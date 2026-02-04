@@ -53,7 +53,7 @@ const navigation: NavGroup[] = [
         items: [
             { title: 'Spare Parts', href: '/spare-parts', icon: Package },
             { title: 'Stock Levels', href: '/stock-levels', icon: Boxes },
-            { title: 'Stock Transfer', href: '/stock-transfer', icon: ArrowLeftRight },
+            { title: 'Stock Levels', href: '/stock-levels', icon: Boxes },
             { title: 'Locations', href: '/locations', icon: Building2 },
         ],
     },
@@ -61,6 +61,7 @@ const navigation: NavGroup[] = [
         title: 'Transactions',
         items: [
             { title: 'Production Issues', href: '/production-issues', icon: Factory },
+            { title: 'Stock Transfer', href: '/stock-transfer', icon: ArrowLeftRight },
             { title: 'Rework', href: '/rework', icon: Wrench },
             { title: 'Indents', href: '/indents', icon: ClipboardList },
             { title: 'Purchase Orders', href: '/purchase-orders', icon: ShoppingCart },
