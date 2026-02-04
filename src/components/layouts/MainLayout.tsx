@@ -53,7 +53,6 @@ const navigation: NavGroup[] = [
         items: [
             { title: 'Spare Parts', href: '/spare-parts', icon: Package },
             { title: 'Stock Levels', href: '/stock-levels', icon: Boxes },
-            { title: 'Stock Levels', href: '/stock-levels', icon: Boxes },
             { title: 'Locations', href: '/locations', icon: Building2 },
         ],
     },
