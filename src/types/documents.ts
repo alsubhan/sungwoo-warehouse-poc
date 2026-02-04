@@ -137,7 +137,7 @@ export interface GRNItem {
 }
 
 // Sale Invoice (with E-Invoice)
-export type InvoiceStatus = 'draft' | 'generated' | 'irn_pending' | 'irn_generated' | 'cancelled'
+export type InvoiceStatus = 'draft' | 'generated' | 'irn_pending' | 'irn_generated' | 'paid' | 'partial' | 'cancelled'
 
 export interface SaleInvoice {
     id: string
@@ -190,7 +190,7 @@ export interface SaleInvoiceItem {
 }
 
 // Credit Note
-export type CreditNoteStatus = 'draft' | 'issued' | 'adjusted' | 'cancelled'
+export type CreditNoteStatus = 'draft' | 'issued' | 'adjusted' | 'settled' | 'cancelled'
 
 export interface CreditNote {
     id: string

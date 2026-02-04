@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Search, Plus, ArrowLeft, Package, X } from 'lucide-react'
+import { Search, Plus, ArrowLeft, Package } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -55,12 +55,12 @@ export function SparePartSearchDialog({
         .map(part => {
             const stock = locationId
                 ? stockLevels.find(s => s.sparePartId === part.id && s.locationId === locationId)
-                : stockLevels.filter(s => s.sparePartId === part.id).reduce((sum, s) => ({ ...s, currentStock: sum.currentStock + s.currentStock }), { currentStock: 0 } as any)
+                : stockLevels.filter(s => s.sparePartId === part.id).reduce((sum, s) => ({ ...s, quantityAvailable: sum.quantityAvailable + s.quantityAvailable }), { quantityAvailable: 0 } as any)
             const category = categories.find(c => c.id === part.categoryId)
             const unit = units.find(u => u.id === part.unitId)
             return {
                 ...part,
-                currentStock: stock?.currentStock || 0,
+                currentStock: stock?.quantityAvailable || 0,
                 categoryName: category?.name,
                 unitName: unit?.abbreviation || unit?.name
             }
@@ -207,7 +207,7 @@ export function SparePartSearchDialog({
                                                 <div className="text-right">
                                                     <div className="font-medium">{formatCurrency(part.unitCost)}</div>
                                                     <div className="text-xs text-muted-foreground">
-                                                        Stock: <span className={part.currentStock <= (part.reorderPoint || 0) ? 'text-amber-600 font-medium' : ''}>{part.currentStock}</span>
+                                                        Stock: <span className={(part.currentStock || 0) <= (part.reorderPoint || 0) ? 'text-amber-600 font-medium' : ''}>{part.currentStock}</span>
                                                     </div>
                                                 </div>
                                                 <Button size="sm" variant="outline" className="flex items-center gap-1">

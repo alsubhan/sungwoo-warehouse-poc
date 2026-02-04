@@ -1,0 +1,15 @@
+
+> sungwoo-warehouse-poc@0.0.1 build
+> tsc -b && vite build
+
+src/components/layouts/MainLayout.tsx(6,1): error TS6133: 'Separator' is declared but its value is never read.
+src/components/shared/SparePartSearchDialog.tsx(2,44): error TS6133: 'X' is declared but its value is never read.
+src/components/shared/SparePartSearchDialog.tsx(58,133): error TS2339: Property 'currentStock' does not exist on type 'StockLevel'.
+src/components/shared/SparePartSearchDialog.tsx(210,81): error TS18048: 'part.currentStock' is possibly 'undefined'.
+src/components/ui/sonner.tsx(1,1): error TS6133: 'useTheme' is declared but its value is never read.
+src/components/ui/sonner.tsx(1,26): error TS2307: Cannot find module 'next-themes' or its corresponding type declarations.
+src/pages/CreditNotesPage.tsx(99,244): error TS2367: This comparison appears to be unintentional because the types 'CreditNoteStatus' and '"settled"' have no overlap.
+src/pages/CreditNotesPage.tsx(117,64): error TS7053: Element implicitly has an 'any' type because expression of type 'CreditNoteStatus' can't be used to index type '{ draft: { label: string; variant: "secondary"; }; issued: { label: string; variant: "info"; }; accepted: { label: string; variant: "success"; }; rejected: { label: string; variant: "destructive"; }; settled: { ...; }; cancelled: { ...; }; }'.
+  Property 'adjusted' does not exist on type '{ draft: { label: string; variant: "secondary"; }; issued: { label: string; variant: "info"; }; accepted: { label: string; variant: "success"; }; rejected: { label: string; variant: "destructive"; }; settled: { ...; }; cancelled: { ...; }; }'.
+src/pages/CreditNotesPage.tsx(117,98): error TS7053: Element implicitly has an 'any' type because expression of type 'CreditNoteStatus' can't be used to index type '{ draft: { label: string; variant: "secondary"; }; issued: { label: string; variant: "info"; }; accepted: { label: string; variant: "success"; }; rejected: { label: string; variant: "destructive"; }; settled: { ...; }; cancelled: { ...; }; }'.
+  Property 'adjusted' does not exist on type '{ draft: { label: string; variant: "secondary"; }; issued: { label: string; variant: "info"; }; accepted: { label: string; variant: "success"; }; rejected: { label: string; variant: "destructive"; }; settled: { ...; }; cancelled: { ...; }; }'.

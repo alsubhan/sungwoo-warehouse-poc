@@ -104,7 +104,7 @@ export default function SaleInvoicesPage() {
                                     <TableCell className="font-mono text-xs">{inv.customerGstin}</TableCell>
                                     <TableCell>{inv.items.length} item(s)</TableCell>
                                     <TableCell className="text-right font-medium">{formatCurrency(inv.totalAmount)}</TableCell>
-                                    <TableCell><Badge variant={statusConfig[inv.status].variant}>{statusConfig[inv.status].label}</Badge></TableCell>
+                                    <TableCell><Badge variant={statusConfig[inv.status as keyof typeof statusConfig].variant}>{statusConfig[inv.status as keyof typeof statusConfig].label}</Badge></TableCell>
                                     <TableCell className="text-right"><div className="flex justify-end gap-2"><Button variant="ghost" size="icon"><Eye className="h-4 w-4" /></Button>{inv.status === 'draft' && <Button variant="outline" size="sm" className="gap-1"><CheckCircle className="h-3 w-3" />Generate IRN</Button>}</div></TableCell>
                                 </TableRow>
                             ))}

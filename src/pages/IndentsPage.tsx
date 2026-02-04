@@ -40,7 +40,7 @@ interface IndentItem {
 }
 
 export default function IndentsPage() {
-    const [activeTab, setActiveTab] = useState('all')
+    const [activeTab] = useState('all')
     const [isDialogOpen, setIsDialogOpen] = useState(false)
     const [isSearchOpen, setIsSearchOpen] = useState(false)
     const [requestedBy, setRequestedBy] = useState('')

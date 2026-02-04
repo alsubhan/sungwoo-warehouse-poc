@@ -20,6 +20,8 @@ const statusConfig = {
     accepted: { label: 'Accepted', variant: 'success' as const },
     rejected: { label: 'Rejected', variant: 'destructive' as const },
     settled: { label: 'Settled', variant: 'success' as const },
+    adjusted: { label: 'Adjusted', variant: 'info' as const },
+    cancelled: { label: 'Cancelled', variant: 'destructive' as const },
 }
 
 const reasonLabels: Record<string, string> = {

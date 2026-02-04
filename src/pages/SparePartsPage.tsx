@@ -19,7 +19,7 @@ import {
     DialogTitle,
 } from '@/components/ui/dialog'
 import { Plus, Search, Edit, Eye, Package } from 'lucide-react'
-import { spareParts, stockLevels, categories } from '@/data/mock-data'
+import { spareParts, stockLevels } from '@/data/mock-data'
 import { formatCurrency } from '@/lib/utils'
 import type { SparePart } from '@/types'
 
